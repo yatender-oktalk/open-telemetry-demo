@@ -6,6 +6,8 @@ defmodule Charlie.Application do
   use Application
 
   def start(_type, _args) do
+    _ = OpenTelemetry.register_application_tracer(:charlie)
+
     children = [
       # Starts a worker by calling: Charlie.Worker.start_link(arg)
       # {Charlie.Worker, arg}

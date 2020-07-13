@@ -6,6 +6,8 @@ defmodule Beta.Application do
   use Application
 
   def start(_type, _args) do
+    _ = OpenTelemetry.register_application_tracer(:beta)
+
     children = [
       # Starts a worker by calling: Beta.Worker.start_link(arg)
       # {Beta.Worker, arg}

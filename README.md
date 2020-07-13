@@ -1,4 +1,0 @@
-# OpenTelemetryUmbrella
-
-**TODO: Add description**
-

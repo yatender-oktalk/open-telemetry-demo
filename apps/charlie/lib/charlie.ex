@@ -3,16 +3,12 @@ defmodule Charlie do
   Documentation for `Charlie`.
   """
 
-  @doc """
-  Hello world.
+  require OpenTelemetry.Tracer
 
-  ## Examples
-
-      iex> Charlie.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def get_account(params, parent_span) do
+    OpenTelemetry.Tracer.with_span "charlie-span", %{parent: parent_span} do
+      Process.sleep(123)
+      params
+    end
   end
 end

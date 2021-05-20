@@ -35,11 +35,16 @@ defmodule Alpha do
     span_ctx = OpenTelemetry.Tracer.current_span_ctx()
 
     # we are passing 2 params in which second param is span information
-    :rpc.call(:beta@localhost, Elixir.Beta, :get_account_info, [params, span_ctx])
+    # :rpc.call(:beta@localhost, Elixir.Beta, :get_account_info, [params, span_ctx])
   end
 
   # this function just add some delay
   defp add_delay(delay) do
     Process.sleep(delay)
+  end
+
+  def call() do
+    IO.inspect(self())
+    # :rpc.call(:beta@localhost, Elixir.Beta, :get_something_random, [])
   end
 end

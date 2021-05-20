@@ -14,4 +14,9 @@ defmodule Beta do
       :rpc.call(:charlie@localhost, Elixir.Charlie, :get_account, [params, span_ctx])
     end
   end
+
+  def get_something_random() do
+    IO.inspect(self())
+    :hello
+  end
 end
